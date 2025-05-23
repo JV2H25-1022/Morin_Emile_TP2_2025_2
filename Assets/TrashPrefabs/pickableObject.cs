@@ -6,7 +6,7 @@ public class pickableObject : MonoBehaviour
 {
     [SerializeField] GameObject _Trash;
     private void OnTriggerEnter(){
-        if (gameObject.tag == "Pickable"){
+        if (gameObject.tag == "Pickable" || gameObject.tag == "Key"){
                 Destroy(_Trash);
             }
 

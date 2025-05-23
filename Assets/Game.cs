@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     [SerializeField] GameObject _joueur;
     [SerializeField] GameObject[] _dechets;
     [SerializeField] GameObject[] _dechetsNonPickable;
+    [SerializeField] GameObject[] _Key;
     [SerializeField] int pickableCount;
     [SerializeField] int totalCount;
     [SerializeField] public int _inventaireActuel;
@@ -64,6 +65,7 @@ public class Game : MonoBehaviour
         // --------------- DÉFENDRE LE JOUEUR DE PRENDRE DES OBJETS A MAX INVENTAIRE ------------------
         _dechets = GameObject.FindGameObjectsWithTag("Pickable");
         _dechetsNonPickable = GameObject.FindGameObjectsWithTag("notPickable");
+        _Key = GameObject.FindGameObjectsWithTag("Key");
         if(_inventaireActuel == _inventaireMaximum){
             foreach(GameObject obj in _dechets){
                 obj.tag = "notPickable"; 
@@ -75,7 +77,7 @@ public class Game : MonoBehaviour
                 obj.tag = "Pickable"; 
             }
         }
-       if(pickableCount == 0 && _dechetsNonPickable.Length == 0 && _inventaireActuel == 0){
+       if(pickableCount == 0 && _dechetsNonPickable.Length == 0 && _inventaireActuel == 0 && _Key.Length == 0){
             SceneManager.LoadScene(2);
         }
         // --------------- NOM DU JOUEUR ------------------

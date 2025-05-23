@@ -9,6 +9,7 @@ TagManager:
   - notPickable
   - DumpingZone
   - ScoreFinal
+  - Key
   layers:
   - Default
   - TransparentFX
