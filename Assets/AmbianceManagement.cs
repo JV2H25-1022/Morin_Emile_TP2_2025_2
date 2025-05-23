@@ -10,7 +10,7 @@ public class AmbianceManagement : MonoBehaviour {
     public void ChangerVolumeMusique(float nouveauVolume)
     {
         Debug.Log("Changer volume" + nouveauVolume);
-        _mixer.SetFloat("VolumeMusique", nouveauVolume);
+        _mixer.SetFloat("SonAmbiance", nouveauVolume);
     }
 
 }
