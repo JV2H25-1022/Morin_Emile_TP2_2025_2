@@ -6,10 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Pickable
-  - notPickable
   - DumpingZone
-  - ScoreFinal
   - Key
+  - ScoreFinal
+  - notPickable
   layers:
   - Default
   - TransparentFX
