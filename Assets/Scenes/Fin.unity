@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventaireTenu: 242
-  _totalTexte: {fileID: 0}
+  _totalTexte: {fileID: 992759658}
 --- !u!4 &468968951
 Transform:
   m_ObjectHideFlags: 0

@@ -20,8 +20,8 @@ public class Game : MonoBehaviour
     [SerializeField] AudioSource _pickUpSound;
     public TMP_InputField _NomDuJoueur;
     public static string nom;
-    public static Game Instance;
-
+    public Game Instance;
+    
     void Start()
     {
         _joueur = GameObject.Find("PlayerArmature");
@@ -29,19 +29,7 @@ public class Game : MonoBehaviour
         
     }
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            _objetTotalPris = _objetTotalPris;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -56,6 +44,7 @@ public class Game : MonoBehaviour
             _objetTotalPris += 1;
             inventaireUI.instance.dechetPris();
             totalCount -= 1;
+            
         }
         else{
             _animator.SetBool("PickUp", false);

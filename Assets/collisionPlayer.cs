@@ -5,14 +5,35 @@ using UnityEngine;
 public class collisionPlayer : MonoBehaviour
 {
     public GameObject resetPoint;
+    [SerializeField] GameObject _joueur;
+    [SerializeField] AudioSource _PlayerHitSound;
+    [SerializeField] GameObject _perduPoints;
+
+    void Start()
+    {
+        _joueur = GameObject.Find("PlayerArmature");
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the object colliding has the tag "Player"
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject == _joueur)
         {
-            // Reset the player's position to the reset point
-            collision.gameObject.transform.position = resetPoint.transform.position;
+            CharacterController cc = collision.gameObject.GetComponent<CharacterController>();
+            if (cc != null)
+            {
+                _perduPoints.SetActive(true);
+                Invoke("bye", 4f);
+                cc.enabled = false;
+                collision.transform.position = resetPoint.transform.position;
+                cc.enabled = true;
+                _PlayerHitSound.Play();
+                FindObjectOfType<Game>()._inventaireActuel = 0;
+                inventaireUI.instance.Dumped();
+            }
         }
+    }
+    
+    private void bye(){
+        _perduPoints.SetActive(false);
     }
 }
